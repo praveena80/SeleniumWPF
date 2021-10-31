@@ -1,6 +1,9 @@
+package petStore;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -8,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
@@ -19,11 +22,18 @@ public class BaseTest {
     @BeforeTest
     public void goToWebsite() {
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://petstore.octoperf.com/");
+        //Implicit wait example
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.get("https://petstore.octoperf.com/");
+        driver.get("http://automationpractice.com/index.php");
     }
 
     @AfterTest
+    public void closeWindow(){
+        driver.close();
+    }
+
+    @AfterSuite
     public void tearDown() {
         driver.quit();
     }
