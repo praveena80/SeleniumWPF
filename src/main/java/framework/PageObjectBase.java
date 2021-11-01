@@ -1,5 +1,6 @@
 package framework;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -38,5 +39,9 @@ public class PageObjectBase {
 
     public void waitForElement () throws InterruptedException {
         wait.wait(10000);
+    }
+
+    public String generateRandomString(int length){
+        return RandomStringUtils.randomAlphabetic(length);
     }
 }

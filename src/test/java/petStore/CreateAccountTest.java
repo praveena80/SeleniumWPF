@@ -1,5 +1,6 @@
 package petStore;
 
+import baseTest.BaseTest;
 import pageObjects.CreateAccountPage;
 import pageObjects.LoginPage;
 import org.testng.Assert;

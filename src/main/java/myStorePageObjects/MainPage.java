@@ -23,6 +23,8 @@ public class MainPage extends PageObjectBase {
     By addToCart = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]");
     //xpath using contains
     By cartItem = By.xpath("//*[@id=\"layer_cart\"]//span[contains(text(), 'There is 1 item in your cart.')]");
+    By secondItem = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/h2/span[1]");
+    By proceedToCheckOutBtn = By.xpath("//*[@id=\"layer_cart\"]//div[4]/a/span");
 
     public void selectWomen() {
         waitForVisibilityOfElement(driver.findElement(women));
@@ -46,6 +48,11 @@ public class MainPage extends PageObjectBase {
         waitForVisibilityOfElement(driver.findElement(cartItem));
     }
 
+    public void clickAddToCartToAddTwo() {
+        driver.findElement(addToCart).click();
+        waitForVisibilityOfElement(driver.findElement(secondItem));
+    }
+
 //    public String verifyCartItem () throws InterruptedException {
 //        String cartText = getElementText(driver.findElement(cartItem));
 //        waitForElement();
@@ -55,5 +62,13 @@ public class MainPage extends PageObjectBase {
     public String textVerification () {
         String cartText = driver.findElement(cartItem).getText();
         return cartText;
+    }
+
+    public boolean textVerificationForSecondItem () {
+        return driver.findElement(secondItem).isDisplayed();
+    }
+
+    public void clickOnProceedCheckOut () {
+        driver.findElement(proceedToCheckOutBtn).click();
     }
 }
