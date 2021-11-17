@@ -1,4 +1,4 @@
-package petStore;
+package baseTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -23,18 +23,19 @@ public class BaseTest {
     public void goToWebsite() {
         driver.manage().window().maximize();
         //Implicit wait example
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        driver.get("https://petstore.octoperf.com/");
+        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
+
+
         driver.get("http://automationpractice.com/index.php");
     }
 
-    @AfterTest
+//    @AfterTest
     public void closeWindow(){
         driver.close();
     }
 
-    @AfterSuite
+//    @AfterSuite
     public void tearDown() {
-        driver.quit();
-    }
+       driver.quit();
+   }
 }

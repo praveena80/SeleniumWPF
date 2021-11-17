@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageObjectBase {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    public WebDriver driver;
+    public WebDriverWait wait;
     JavascriptExecutor js;
 
     public PageObjectBase(WebDriver driver) {
