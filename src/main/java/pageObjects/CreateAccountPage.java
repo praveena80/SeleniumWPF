@@ -1,5 +1,6 @@
 package pageObjects;
 
+import framework.PageObjectBase;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,16 +8,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class CreateAccountPage  {
-    WebDriver driver;
+public class CreateAccountPage extends PageObjectBase {
+//    WebDriver driver;
 
     public CreateAccountPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
    By userNameTextBox = By.name("username");
    By passwordTextBox = By.name("password");
    By repeatPasswordTextBox = By.name("repeatedPassword");
+   By selectLanguage = By.name("account.languagePreference");
 
 //   //Another way of declaring a variable
 //   WebElement pwdTextBox1 = driver.findElement(By.name("password"));
@@ -53,4 +55,8 @@ public class CreateAccountPage  {
    public Boolean isUserNameTextBoxDisplayed() {
        return driver.findElement(userNameTextBox).isDisplayed();
    }
+
+//   public void setSelectLanguage() {
+//       driver.
+//   }
 }

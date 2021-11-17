@@ -14,6 +14,7 @@ public class MainPage extends PageObjectBase {
     Actions actions = new Actions(driver);
 
     By women = By.linkText("WOMEN");
+    By tShirt = By.linkText("T-SHIRTS");
     By subCategory = By.id("subcategories");
     By product = By.linkText("Faded Short Sleeve T-shirts");
     //Below observe for different types of xpaths
@@ -31,6 +32,11 @@ public class MainPage extends PageObjectBase {
         driver.findElement(women).click();
     }
 
+    public void selectTShirts() {
+        waitForVisibilityOfElement(driver.findElement(tShirt));
+        driver.findElement(tShirt).click();
+    }
+
     public Boolean subCategoryIsDisplayed() {
         waitForVisibilityOfElement(driver.findElement(subCategory));
         return driver.findElement(subCategory).isDisplayed();
@@ -38,7 +44,8 @@ public class MainPage extends PageObjectBase {
 
     public void clickQuickView() {
         scrollDown(driver.findElement(compare));
-        actions.moveToElement(driver.findElement(firstImage)).moveToElement(driver.findElement(addToCart)).perform();
+        actions.moveToElement(driver.findElement(firstImage))
+                .moveToElement(driver.findElement(addToCart)).perform();
         System.out.println("Mouse moved to the window");
         waitForVisibilityOfElement(driver.findElement(addToCart));
     }

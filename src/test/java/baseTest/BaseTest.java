@@ -24,8 +24,9 @@ public class BaseTest {
         driver.manage().window().maximize();
         //Implicit wait example
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        driver.get("https://petstore.octoperf.com/");
-        driver.get("http://automationpractice.com/index.php");
+        driver.get("https://petstore.octoperf.com/");
+//        driver.get("http://automationpractice.com/index.php");
+//        driver.get("https://cvshealth.com/");
     }
 
     @AfterTest
